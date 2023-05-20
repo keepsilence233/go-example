@@ -38,3 +38,27 @@ func slowFun(op int) int{
 	time.Sleep(time.Second * 1)
 	return rand.Int();
 }
+
+
+
+func TestVarParam(t *testing.T){
+	t.Log(sum(1,1,1,1,1))
+}
+//go 可变参数
+func sum(ops ...int) int {
+	ret := 0
+	for _,item := range ops{
+		ret = ret + item
+	}
+	return ret;
+}
+
+func Clear(){
+	fmt.Println("clear resources!")
+}
+//defer 函数
+func TestDefer(t *testing.T){
+	defer Clear()
+	t.Log("start")
+	t.Log("execute")
+}
