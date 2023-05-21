@@ -2,7 +2,7 @@ package client_test
 
 import (
 	"fmt"
-	"sample-app/src/example/test/series"
+	"sample-app/src/example/test/package_test/series"
 	"testing"
 )
 
