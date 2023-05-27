@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+/*
+*
+判断任务是否取消
+*/
 func isCancelled(cancelChan chan struct{}) bool {
 	select {
 	case <-cancelChan:
@@ -15,6 +19,7 @@ func isCancelled(cancelChan chan struct{}) bool {
 	}
 }
 
+//关闭channel
 func cancel_1(cancelChan chan struct{}) {
 	cancelChan <- struct{}{}
 }
@@ -38,8 +43,7 @@ func TestCancel(t *testing.T) {
 			}
 			fmt.Println(i, "Canceled")
 		}(i, cancelChan)
-		cancel_2(cancelChan)
-		time.Sleep(time.Second * 1)
 	}
-
+	cancel_2(cancelChan)
+	time.Sleep(time.Second * 1)
 }
