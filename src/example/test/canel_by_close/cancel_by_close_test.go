@@ -19,7 +19,7 @@ func isCancelled(cancelChan chan struct{}) bool {
 	}
 }
 
-//关闭channel
+// 关闭channel
 func cancel_1(cancelChan chan struct{}) {
 	cancelChan <- struct{}{}
 }
